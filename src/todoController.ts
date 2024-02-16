@@ -1,6 +1,6 @@
 import { TodoModel } from "./todoModel";
 import { TodoView } from "./todoView";
-import { auxDate } from "./utils/date.utils";
+import { filterTodosByDate } from "./utils/date.utils";
 
 export class TodoController {
   private todos: TodoModel[] = [];
@@ -17,28 +17,29 @@ export class TodoController {
   }
 
   public removeTask(index: number): void {
-    for (let i = 0; i < this.todos.length; i++) {
-      if (i === index) {
-        this.todos.splice(i, 1);
-        break;
-      }
+    if (index >= 0 && index < this.todos.length) {
+      this.todos.splice(index, 1);
+      this.view.displayTodos(this.todos);
     }
-    this.view.displayTodos(this.todos);
   }
 
   public toggleTodo(index: number): void {
-    const todo = this.todos[index];
-    todo.completed = !todo.completed;
-    this.view.displayTodos(this.todos);
+    if (index >= 0 && index < this.todos.length) {
+      const todo = this.todos[index];
+      todo.completed = !todo.completed;
+      this.view.displayTodos(this.todos);
+    }
   }
 
   public updateTodoTitle(index: number, title: string): void {
-    const todo = this.todos[index];
-    todo.title = title;
-    this.view.displayTodos(this.todos);
+    if (index >= 0 && index < this.todos.length) {
+      const todo = this.todos[index];
+      todo.title = title;
+      this.view.displayTodos(this.todos);
+    }
   }
 
   public filterTodosByCreationDay() {
-    return auxDate(this.todos, new Date());
+    return filterTodosByDate(this.todos, new Date());
   }
 }

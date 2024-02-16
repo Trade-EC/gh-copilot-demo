@@ -1,18 +1,18 @@
 import { TodoModel } from "../todoModel";
 
-export const auxDate = (
+export const filterTodosByDate = (
   todos: TodoModel[],
   date: Date
-): string | undefined | TodoModel[] => {
-  const a = new Date();
-  const b = "Fecha";
-  const f: any = [];
+): string | TodoModel[] => {
+  const targetDate = date;
+  const filteredTodos: TodoModel[] = [];
+  
   todos.forEach(todo => {
-    const tCD = new Date(todo.creationDate);
-    if (tCD.toDateString() === a.toDateString()) {
-      f.push(todo);
+    const todoCreationDate = new Date(todo.creationDate);
+    if (todoCreationDate.toDateString() === targetDate.toDateString()) {
+      filteredTodos.push(todo);
     }
   });
 
-  return f.length === 1 ? "No hay tareas para hoy" : f;
+  return filteredTodos.length === 1 ? "No hay tareas para hoy" : filteredTodos;
 };
