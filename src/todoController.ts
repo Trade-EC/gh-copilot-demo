@@ -2,6 +2,9 @@ import { TodoModel } from "./todoModel";
 import { TodoView } from "./todoView";
 import { auxDate } from "./utils/date.utils";
 
+//It allows to create, remove, toggle and update todos.
+//It also allows to filter todos by creation day.
+//It uses the TodoModel and TodoView classes to do that.
 export class TodoController {
   private todos: TodoModel[] = [];
   private view: TodoView;
