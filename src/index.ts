@@ -1,5 +1,8 @@
 import { TodoController } from './todoController';
 
+/**
+ * Represents the controller for managing todos.
+ */
 const controller = new TodoController();
 
 controller.aT('Buy milk');
