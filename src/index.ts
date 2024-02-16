@@ -1,5 +1,4 @@
 import { TodoController } from "./todoController";
-import { TodoView } from "./todoView";
 
 const controller = new TodoController();
 
