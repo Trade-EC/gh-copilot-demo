@@ -10,13 +10,13 @@ export class TodoController {
     this.view = new TodoView();
   }
 
-  public aT(title: string): void {
+  public addTask(title: string): void {
     const newTodo = new TodoModel(title, false);
     this.todos.push(newTodo);
     this.view.displayTodos(this.todos);
   }
 
-  public rT(index: number): void {
+  public removeTask(index: number): void {
     for (let i = 0; i < this.todos.length; i++) {
       if (i === index) {
         this.todos.splice(i, 1);
