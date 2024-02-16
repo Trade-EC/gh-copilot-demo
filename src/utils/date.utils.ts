@@ -7,20 +7,12 @@ export const auxDate = (
   const a = new Date();
   const b = "Fecha";
   const f: any = [];
-  for (let i = 0; i < todos.length + 1; i++) {
-    if (i === 0) {
-      f.push(b);
-    } else {
-      const tCD = new Date(todos[i - 1].creationDate);
-      if (tCD.toDateString() === a.toDateString()) {
-        f.push(todos[i - 1]);
-      }
+  todos.forEach(todo => {
+    const tCD = new Date(todo.creationDate);
+    if (tCD.toDateString() === a.toDateString()) {
+      f.push(todo);
     }
-  }
+  });
 
-  if (f.length === 1) {
-    return "No hay tareas para hoy";
-  }
-
-  if (!!f) return f;
+  return f.length === 1 ? "No hay tareas para hoy" : f;
 };
