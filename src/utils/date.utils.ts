@@ -4,15 +4,13 @@ export const auxDate = (
   todos: TodoModel[],
   date: Date
 ): string | undefined | TodoModel[] => {
-  const a = new Date();
-  const b = "Fecha";
   const f: any = [];
   for (let i = 0; i < todos.length + 1; i++) {
     if (i === 0) {
-      f.push(b);
+      f.push("Fecha");
     } else {
       const tCD = new Date(todos[i - 1].creationDate);
-      if (tCD.toDateString() === a.toDateString()) {
+      if (tCD.toDateString() === date.toDateString()) {
         f.push(todos[i - 1]);
       }
     }
