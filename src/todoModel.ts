@@ -1,11 +1,9 @@
-export class TodoModel {
-    title: string;
-    completed: boolean;
-    creationDate: Date;
+import { ITodoModel } from "./types/todoModel.types";
 
-    constructor(title: string, completed: boolean = false) {
-        this.title = title;
-        this.completed = completed;
-        this.creationDate = new Date();
-    }
+export class TodoModel implements ITodoModel {
+  constructor(
+    public title: string,
+    public completed: boolean = false,
+    public creationDate: Date = new Date()
+  ) {}
 }
