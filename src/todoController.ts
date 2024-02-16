@@ -23,7 +23,6 @@ export class TodoController {
   public addTodoItem(title: string): void {
     const newTodo = new TodoModel(title, false);
     this.todos.push(newTodo);
-    this.view.displayTodos(this.todos);
   }
 
   /**
@@ -37,7 +36,6 @@ export class TodoController {
         break;
       }
     }
-    this.view.displayTodos(this.todos);
   }
 
   /**
@@ -47,7 +45,6 @@ export class TodoController {
   public toggleTodoItem(index: number): void {
     const todo = this.todos[index];
     todo.completed = !todo.completed;
-    this.view.displayTodos(this.todos);
   }
 
   /**
@@ -58,7 +55,6 @@ export class TodoController {
   public updateTodoTitle(index: number, title: string): void {
     const todo = this.todos[index];
     todo.title = title;
-    this.view.displayTodos(this.todos);
   }
 
   /**
@@ -66,5 +62,9 @@ export class TodoController {
    */
   public filterTodosByCreationDay() {
     return auxDate(this.todos, new Date());
+  }
+
+  displayTodos() {
+    this.view.displayTodos(this.todos);
   }
 }

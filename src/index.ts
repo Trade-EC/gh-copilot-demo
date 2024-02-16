@@ -4,5 +4,5 @@ const controller = new TodoController();
 
 controller.addTodoItem("Buy milk");
 controller.addTodoItem("Walk the dog");
-controller.removeTodoItem(1);
 controller.filterTodosByCreationDay();
+controller.displayTodos();
