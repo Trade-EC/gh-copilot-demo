@@ -3,24 +3,20 @@ import { TodoModel } from "../todoModel";
 export const auxDate = (
   todos: TodoModel[],
   date: Date
-): string | undefined | TodoModel[] => {
-  const a = new Date();
-  const b = "Fecha";
-  const f: any = [];
-  for (let i = 0; i < todos.length + 1; i++) {
-    if (i === 0) {
-      f.push(b);
-    } else {
-      const tCD = new Date(todos[i - 1].creationDate);
-      if (tCD.toDateString() === a.toDateString()) {
-        f.push(todos[i - 1]);
-      }
+): TodoModel[] | undefined => {
+  const today = new Date().setHours(0, 0, 0, 0);
+  const filteredTodos: TodoModel[] = [];
+
+  for (let i = 0; i < todos.length; i++) {
+    const tCD = new Date(todos[i].creationDate).setHours(0, 0, 0, 0);
+    if (tCD === today) {
+      filteredTodos.push(todos[i]);
     }
   }
 
-  if (f.length === 1) {
-    return "No hay tareas para hoy";
+  if (filteredTodos.length === 0) {
+    return undefined;
   }
 
-  if (!!f) return f;
+  return filteredTodos;
 };
