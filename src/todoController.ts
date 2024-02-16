@@ -14,6 +14,14 @@ export class TodoController {
    * Adds a new task to the todo list.
    * @param title - The title of the task.
    */
+  public displayTodos(): void {
+    this.view.displayTodos(this.todos);
+  }
+
+  /**
+   * Adds a new task to the todo list.
+   * @param title - The title of the task.
+   */
   public addTask(title: string): void {
     const newTodo = new TodoModel(title, false);
     this.todos.push(newTodo);
