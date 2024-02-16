@@ -1,26 +1,26 @@
 import { TodoModel } from "../todoModel";
 
-export const auxDate = (
-  todos: TodoModel[],
-  date: Date
+export const filterTodosByCurrentDate = (
+  todos: TodoModel[]
 ): string | undefined | TodoModel[] => {
-  const a = new Date();
-  const b = "Fecha";
-  const f: any = [];
-  for (let i = 0; i < todos.length + 1; i++) {
-    if (i === 0) {
-      f.push(b);
+  const currentDate = new Date();
+  const dateLabel = "Fecha";
+  const filteredTodos: any = [];
+
+  for (let index = 0; index < todos.length + 1; index++) {
+    if (index === 0) {
+      filteredTodos.push(dateLabel);
     } else {
-      const tCD = new Date(todos[i - 1].creationDate);
-      if (tCD.toDateString() === a.toDateString()) {
-        f.push(todos[i - 1]);
+      const todoCreationDate = new Date(todos[index - 1].creationDate);
+      if (todoCreationDate.toDateString() === currentDate.toDateString()) {
+        filteredTodos.push(todos[index - 1]);
       }
     }
   }
 
-  if (f.length === 1) {
+  if (filteredTodos.length === 1) {
     return "No hay tareas para hoy";
   }
 
-  if (!!f) return f;
+  if (filteredTodos.length > 0) return filteredTodos;
 };
