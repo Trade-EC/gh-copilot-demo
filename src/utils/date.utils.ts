@@ -1,14 +1,5 @@
 import { TodoModel } from "../todoModel";
 
-/**
- * Filters an array of TodoModel objects based on their creation date.
- * Returns an array of TodoModel objects that were created on the same day as the provided date.
- * If no matching TodoModel objects are found, returns the string "No hay tareas para hoy".
- * @param todos - An array of TodoModel objects.
- * @param date - The date to filter the TodoModel objects by.
- * @returns An array of TodoModel objects that were created on the same day as the provided date,
- * or the string "No hay tareas para hoy" if no matching TodoModel objects are found.
- */
 export const auxDate = (
   todos: TodoModel[],
   date: Date
