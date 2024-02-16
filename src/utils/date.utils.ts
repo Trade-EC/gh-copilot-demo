@@ -1,8 +1,7 @@
 import { TodoModel } from "../todoModel";
 
 export const auxDate = (
-  todos: TodoModel[],
-  date: Date
+  todos: TodoModel[]
 ): string | undefined | TodoModel[] => {
   const a = new Date();
   const b = "Fecha";

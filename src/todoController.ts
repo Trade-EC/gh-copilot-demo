@@ -51,6 +51,6 @@ export class TodoController {
    * @returns An array of todos created on the current day.
    */
   public filterTodosByCreationDay(): string | TodoModel[] | undefined {
-    return auxDate(this.todos, new Date());
+    return auxDate(this.todos);
   }
 }
