@@ -11,4 +11,6 @@ export class TodoView {
             console.log(`${index + 1}. ${todo.title} ${todo.completed ? '(Done)' : ''}`);
         });
     }
+    //This method is for the console to display the todos with their titles and completion status.
 }
+
