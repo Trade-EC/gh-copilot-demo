@@ -1,9 +1,11 @@
-import { TodoController } from './todoController';
+import { TodoController } from "./todoController";
 
 const controller = new TodoController();
 
-controller.aT('Buy milk');
-controller.aT('Walk the dog');
-// controller.displayTodos();
-controller.rT(1);
-// controller.displayTodos();
+controller.addTask("Buy milk");
+controller.addTask("Walk the dog");
+controller.addTask("Insultar a Miguel");
+controller.addTask("Putear al Cristian");
+controller.addTask("Comprarle coca al David");
+
+controller.removeTask(1);
