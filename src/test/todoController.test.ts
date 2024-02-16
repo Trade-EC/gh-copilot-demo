@@ -11,7 +11,7 @@ describe("TodoController", () => {
   });
 
   it("should add a new todo item with the specified title and default completion status", () => {
-    todoController.aT("Test Todo");
+    todoController.addTodo("Test Todo");
     expect((todoController as any).todos).toHaveLength(1);
     expect((todoController as any).todos[0]).toBeInstanceOf(TodoModel);
     expect((todoController as any).todos[0].title).toBe("Test Todo");
@@ -26,7 +26,7 @@ describe("TodoController", () => {
       new TodoModel("Todo 1"),
       new TodoModel("Todo 2"),
     ];
-    todoController.rT(0);
+    todoController.removeTodo(0);
     expect((todoController as any).todos).toHaveLength(1);
     expect((todoController as any).todos[0].title).toBe("Todo 2");
     expect(mockView.displayTodos).toHaveBeenCalledWith(
@@ -39,7 +39,7 @@ describe("TodoController", () => {
       new TodoModel("Todo 1"),
       new TodoModel("Todo 2"),
     ];
-    todoController.rT(2);
+    todoController.removeTodo(2);
     expect((todoController as any).todos).toHaveLength(2);
     expect(mockView.displayTodos).toHaveBeenCalledWith(
       (todoController as any).todos
@@ -51,7 +51,7 @@ describe("TodoController", () => {
       new TodoModel("Todo 1"),
       new TodoModel("Todo 2"),
     ];
-    todoController.rT(-1);
+    todoController.removeTodo(-1);
     expect((todoController as any).todos).toHaveLength(2);
     expect(mockView.displayTodos).toHaveBeenCalledWith(
       (todoController as any).todos

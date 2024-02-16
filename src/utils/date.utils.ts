@@ -1,26 +1,17 @@
 import { TodoModel } from "../todoModel";
 
-export const auxDate = (
+export const filterTodosByDate = (
   todos: TodoModel[],
   date: Date
-): string | undefined | TodoModel[] => {
-  const a = new Date();
-  const b = "Fecha";
-  const f: any = [];
-  for (let i = 0; i < todos.length + 1; i++) {
-    if (i === 0) {
-      f.push(b);
-    } else {
-      const tCD = new Date(todos[i - 1].creationDate);
-      if (tCD.toDateString() === a.toDateString()) {
-        f.push(todos[i - 1]);
-      }
-    }
-  }
+): string | TodoModel[] => {
+  const targetDateString = date.toDateString();
+  const filteredTodos = todos.filter(
+    (todo) => new Date(todo.creationDate).toDateString() === targetDateString
+  );
 
-  if (f.length === 1) {
+  if (filteredTodos.length === 0) {
     return "No hay tareas para hoy";
   }
 
-  if (!!f) return f;
+  return filteredTodos;
 };

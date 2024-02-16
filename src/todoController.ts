@@ -1,6 +1,6 @@
 import { TodoModel } from "./todoModel";
 import { TodoView } from "./todoView";
-import { auxDate } from "./utils/date.utils";
+import { filterTodosByDate } from "./utils/date.utils";
 
 export class TodoController {
   private todos: TodoModel[] = [];
@@ -10,13 +10,13 @@ export class TodoController {
     this.view = new TodoView();
   }
 
-  public aT(title: string): void {
+  public addTodo(title: string): void {
     const newTodo = new TodoModel(title, false);
     this.todos.push(newTodo);
     this.view.displayTodos(this.todos);
   }
 
-  public rT(index: number): void {
+  public removeTodo(index: number): void {
     if (index >= 0 && index < this.todos.length) {
       this.todos.splice(index, 1);
       this.view.displayTodos(this.todos);
@@ -40,6 +40,6 @@ export class TodoController {
   }
 
   public filterTodosByCreationDay() {
-    return auxDate(this.todos, new Date());
+    return filterTodosByDate(this.todos, new Date());
   }
 }
