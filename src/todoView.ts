@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 /**
  * Represents a TodoView class that displays todos.
  */
@@ -7,8 +8,11 @@ export class TodoView {
      * @param todos - An array of todos.
      */
     displayTodos(todos: { title: string, completed: boolean }[]): void {
+        console.log("############ TODO TASKS ############");
         todos.forEach((todo, index) => {
-            console.log(`${index + 1}. ${todo.title} ${todo.completed ? '(Done)' : ''}`);
+            const status = todo.completed ? chalk.green('(Done)') : '';
+            console.log(`${index + 1}. ${chalk.blue(todo.title)} ${status}`);
         });
     }
 }
+

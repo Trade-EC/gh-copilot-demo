@@ -7,3 +7,5 @@ controller.aT('Walk the dog');
 // controller.displayTodos();
 controller.rT(1);
 // controller.displayTodos();
+controller.toggleTodo(0);
+controller.filterTodosByCreationDay();
