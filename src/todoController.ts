@@ -10,13 +10,21 @@ export class TodoController {
     this.view = new TodoView();
   }
 
-  public aT(title: string): void {
+  /**
+   * Adds a new task to the todo list.
+   * @param title - The title of the task.
+   */
+  public addTask(title: string): void {
     const newTodo = new TodoModel(title, false);
     this.todos.push(newTodo);
     this.view.displayTodos(this.todos);
   }
 
-  public rT(index: number): void {
+  /**
+   * Removes a task from the todo list.
+   * @param index - The index of the task to remove.
+   */
+  public removeTask(index: number): void {
     for (let i = 0; i < this.todos.length; i++) {
       if (i === index) {
         this.todos.splice(i, 1);
@@ -26,19 +34,33 @@ export class TodoController {
     this.view.displayTodos(this.todos);
   }
 
+  /**
+   * Toggles the completion status of a task.
+   * @param index - The index of the task to toggle.
+   */
   public toggleTodo(index: number): void {
     const todo = this.todos[index];
     todo.completed = !todo.completed;
     this.view.displayTodos(this.todos);
   }
 
+  /**
+   * Updates the title of a task.
+   * @param index - The index of the task to update.
+   * @param title - The new title for the task.
+   */
   public updateTodoTitle(index: number, title: string): void {
     const todo = this.todos[index];
     todo.title = title;
     this.view.displayTodos(this.todos);
   }
 
-  public filterTodosByCreationDay() {
-    return auxDate(this.todos, new Date());
+  /**
+   * Filters the todos based on the creation day.
+   * @returns An array of todos created on the current day.
+   */
+  public filterTodosByCreationDay(): TodoModel[] | string | undefined{
+    // Adjust the call to auxDate according to its definition
+    return auxDate(this.todos);
   }
 }
