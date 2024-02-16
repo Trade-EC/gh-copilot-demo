@@ -17,9 +17,17 @@ The project has the following structure:
 
 To run the application, follow these steps:
 
-1. Install the dependencies with `npm install`.
+1. Install the dependencies with `yarn install`.
 2. Compile the TypeScript code with `tsc`.
 3. Run the application with `node dist/index.js`.
+
+## How to Test
+
+To test the TODO list application, you can follow these steps:
+
+1. Open a terminal and navigate to the project directory.
+2. Run the command `yarn test` to execute the test suite.
+3. Observe the test results and ensure that all tests pass.
 
 ## Note
 

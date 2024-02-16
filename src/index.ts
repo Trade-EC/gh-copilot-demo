@@ -1,9 +1,8 @@
-import { TodoController } from './todoController';
+import { TodoController } from "./todoController";
 
 const controller = new TodoController();
 
-controller.aT('Buy milk');
-controller.aT('Walk the dog');
-// controller.displayTodos();
-controller.rT(1);
-// controller.displayTodos();
+controller.addTodoItem("Buy milk");
+controller.addTodoItem("Walk the dog");
+controller.removeTodoItem(1);
+controller.filterTodosByCreationDay();
